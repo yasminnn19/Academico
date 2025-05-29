@@ -70,25 +70,19 @@
 </div>
 </nav>
 <div class="container mt-5">
-    <h2 class="mb-4">Tabela de Cursos</h2>
+    <h2 class="mb-4">Tabela de Cidades</h2>
 <table class="table">
     <thead>
         <tr>
         <th scope="col">Nome</th>
-        <th scope="col">Carga horária</th>
-        <th scope="col">Duração em meses</th>
-        <th scope="col">Area do saber</th>
-        <th scope="col">Instituicão</th>
+        <th scope="col">UF</th>
         </tr>
     </thead>
     <tbody>
-    {% for curso in curso %}
+    {% for cidades in cidades %}
     <tr>
-    <td>{{ curso.nome }}</td>
-    <td>{{ curso.carga_horaria_total }}</td>
-    <td>{{ curso.duracao_meses }}</td>
-    <td>{{ curso.area_saber }}</td>
-    <td>{{ curso.instituicao }}</td>
+    <td>{{ cidades.nome }}</td>
+    <td>{{ cidades.uf }}</td>
     </tr>
     {% endfor %}
     </tbody>
