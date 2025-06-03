@@ -105,28 +105,17 @@ class Matricula(models.Model):
 
 class Avaliacoes(models.Model):
     descricao = models.CharField(max_length=100, verbose_name="Descrição")
-    curso = models.ForeignKey(
-        Cursos,
-        on_delete=models.CASCADE,
-        verbose_name="Cursos",
-        null=True,  # 👈 Permite nulo temporariamente
-        blank=True  # Opcional: permite campo vazio no admin
-    )
-    disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE, verbose_name="Disciplinas",null=True,  # 👈 Permite nulo temporariamente
-        blank=True )
-
+    curso = models.ForeignKey(Cursos, on_delete=models.CASCADE, verbose_name="Cursos")
+    disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE, verbose_name="Disciplinas")
     def __str__(self):
         return f"{self.descricao}, {self.curso}, {self.disciplina}"
-
     class Meta:
         verbose_name = "Avaliação"
         verbose_name_plural = "Avaliações"
 
 class Frequencia(models.Model):
     pessoa = models.ForeignKey(Pessoas, on_delete=models.CASCADE, verbose_name="Pessoa")
-    curso = models.ForeignKey(Cursos, on_delete=models.CASCADE, verbose_name="Cursos",
-        null=True,  # 👈 Permite nulo temporariamente
-        blank=True  )
+    curso = models.ForeignKey(Cursos, on_delete=models.CASCADE, verbose_name="Cursos")
     disciplina = models.ForeignKey(Disciplinas, on_delete=models.CASCADE, verbose_name="Disciplinas")
     numero_faltas = models.CharField(max_length=100, verbose_name="Faltas")
 
